@@ -9,9 +9,11 @@ import {
   Button,
   Flex,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import InputField from "./InputField";
 import AuthButton from "../generalComponents/AuthButton";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { authMode, authModeType } from "@/atoms/authStateAtom";
 
 type AuthModalProps = {
   isOpen: boolean;
@@ -19,6 +21,13 @@ type AuthModalProps = {
 };
 
 const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
+
+  const [auth, setAuth] = useState()
+  
+ const setCurrentAuthState = useRecoilState(authMode)
+
+  console.log("This is the current auth state", authMode)
+
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -33,7 +42,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
           </ModalBody>
           <ModalFooter justifyContent="center">
             <Flex mr={2}>
-              <AuthButton color="cyan" text={"Already a member"} onClick={undefined} />
+              <AuthButton color="cyan" text={"Already a member"} onClick={() => useRecoilState(authMode === "login" ? "signup" : "login")} />
             </Flex>
             <Flex mr={2}>
               <AuthButton color="cyan" text={"Login Sign Up"} onClick={undefined} />

@@ -22,7 +22,7 @@ const AuthButton: React.FC<ButtonProps> = ({
       spinner={<BeatLoader size={8} color="white" />}
       colorScheme={color}
       variant={theme}
-      onClick={() => onClick()}
+      onClick={onClick}
     >
       {text}
     </Button>
