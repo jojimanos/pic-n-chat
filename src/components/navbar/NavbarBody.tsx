@@ -16,17 +16,17 @@ const NavbarBody: React.FC<NavbarBodyProps> = () => {
     >
       <Flex
         display="flex"
+        flex={1}
         flexDirection="row"
         justifyContent="flex-start"
-        width="50%"
       >
         <LeftHandContent />
       </Flex>
       <Flex
         display="flex"
+        flex={1}
         flexDirection="row"
         justifyContent="flex-end"
-        width="50%"
       >
         <RightHandContent />
       </Flex>

@@ -1,22 +1,32 @@
-import { Flex, useDisclosure } from "@chakra-ui/react";
+import { Button, Flex, useDisclosure } from "@chakra-ui/react";
 import React from "react";
 import AuthButton from "../generalComponents/AuthButton";
 import AuthModal from "../authentication/AuthModal";
 
 type RightHandContentProps = {
-    children?: any
-}
+  children?: any;
+};
 
 const RightHandContent: React.FC<RightHandContentProps> = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const user = null;
 
-    const { isOpen, onOpen, onClose } = useDisclosure()
+  console.log("Is Open", isOpen);
 
-    return (
-        <Flex>
-            <AuthButton color="cyan" theme="solid" text="Join Our Community" onClick={onOpen}/>
-            <AuthModal isOpen={isOpen} onClose={onClose}/>
-        </Flex>
-    )
-}
+  return (
+    <Flex>
+      {user ? (
+        <Button>Logout</Button>
+      ) : (
+        <>
+          <Button colorScheme="cyan" variant="solid" onClick={onOpen}>
+            Join Our Community
+          </Button>
+          <AuthModal isOpen={isOpen} onClose={onClose} />
+        </>
+      )}
+    </Flex>
+  );
+};
 
-export default RightHandContent
+export default RightHandContent;

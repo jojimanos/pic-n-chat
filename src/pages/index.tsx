@@ -8,10 +8,8 @@ export default function Home() {
       <NavbarBody />
       <Flex
         display="flex"
-        flexDirection="column"
+        flex={1}
         backgroundColor="#F9EBE0"
-        width="auto"
-        height="full"
       >
         {"content"}
       </Flex>

@@ -4,12 +4,15 @@ import React from "react";
 type InputFieldProps = {
 placeholder: string
 type: string
+setValue: React.Dispatch<React.SetStateAction<string>>
+value: string
 }
 
-const InputField: React.FC<InputFieldProps> = ({placeholder, type}) => {
+const InputField: React.FC<InputFieldProps> = ({placeholder, type, setValue, value}) => {
+  
     return (
         <Flex paddingY={2}>
-           <Input type={type} placeholder={placeholder} /> 
+           <Input value={value} type={type} placeholder={placeholder} onChange={(e: any) => setValue(e.target.value)}/> 
         </Flex>
     )
 }

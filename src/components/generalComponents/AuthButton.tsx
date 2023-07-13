@@ -8,6 +8,8 @@ type ButtonProps = {
   onClick: any;
   theme?: string;
   color?: string;
+  email: string
+  password: string
 };
 
 const AuthButton: React.FC<ButtonProps> = ({
@@ -16,13 +18,16 @@ const AuthButton: React.FC<ButtonProps> = ({
   onClick,
   theme,
   color,
+  email,
+  password
 }) => {
   return (
     <Button
       spinner={<BeatLoader size={8} color="white" />}
       colorScheme={color}
       variant={theme}
-      onClick={onClick}
+      // onClick={() => onClick(email, password)}
+      type="submit"
     >
       {text}
     </Button>
